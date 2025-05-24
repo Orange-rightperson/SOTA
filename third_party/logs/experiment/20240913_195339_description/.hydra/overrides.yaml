@@ -1,0 +1,5 @@
+- datamodule=cityfishy
+- model=sam_sampling
+- logger=csv
+- experiment=experiment
+- description=description

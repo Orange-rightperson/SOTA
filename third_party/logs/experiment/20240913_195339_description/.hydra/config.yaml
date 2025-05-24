@@ -1,0 +1,131 @@
+seed: null
+checkpoint: null
+project_name: ugains
+workspace: nekrasov
+experiment: experiment
+description: description
+tags: null
+work_dir: ${hydra:runtime.cwd}
+data_dir: ${work_dir}/data/
+test_after_training: false
+strict_weights_loading: true
+datamodule:
+  _target_: ugains.datamodules.cityfishy_datamodule.CityFishyDataModule
+  mode: lost_found
+  fishyscapes_data_root: ${data_dir}/fs_lost_found
+  cityscapes_data_root: ${data_dir}/cityscapes
+  fishy_mode: '*'
+  target_type:
+  - semantic_mask
+  void_masks: false
+  train_batch_size: 2
+  train_num_workers: 4
+  train_pin_memory: false
+  train_image_size:
+  - 512
+  - 1024
+  validation_batch_size: 2
+  validation_num_workers: 2
+  validation_pin_memory: false
+  validation_image_size:
+  - 1024
+  - 2048
+  num_classes: 19
+  ignore_label: 255
+  mean_std:
+  - - 0.485
+    - 0.456
+    - 0.406
+  - - 0.229
+    - 0.224
+    - 0.225
+logger:
+  csv:
+    _target_: pytorch_lightning.loggers.CSVLogger
+    save_dir: ${work_dir}/${hydra:run.dir}
+    name: csv/
+    version: null
+    prefix: ''
+model:
+  _target_: ugains.models.sam_sampling.Segmentation
+  _recursive_: false
+  model_config:
+    sampling_method: fps
+    ignore_mask: ${data_dir}/ignore_mask.pth
+    nms_thresh: 0.7
+    automask: false
+    minimal_uncert_value_instead_zero: -1.0
+    uncertainty_thresh: -0.15
+    num_samples: 50
+    visualize: false
+    sam_checkpoint: ${data_dir}/sam_vit_h_4b8939.pth
+    model_path: ${data_dir}/rude0fhk.ckpt
+optimizer:
+  _convert_: all
+  _target_: torch.optim.AdamW
+  lr: 0.0001
+  weight_decay: 0.05
+scheduler:
+  scheduler:
+    _target_: torch.optim.lr_scheduler.StepLR
+    step_size: 100
+    gamma: 1.0
+  pytorch_lightning_params:
+    interval: epoch
+trainer:
+  _target_: pytorch_lightning.Trainer
+  accelerator: gpu
+  devices: 1
+  min_epochs: 1
+  max_epochs: 300
+  check_val_every_n_epoch: 20
+  precision: 32
+  log_every_n_steps: 5
+  enable_model_summary: true
+callbacks:
+  model_checkpoint:
+    _target_: pytorch_lightning.callbacks.ModelCheckpoint
+    monitor: val_miou
+    save_last: true
+    save_top_k: 1
+    mode: max
+    filename: '{epoch}_val_miou_{val_miou:0.2f}'
+    every_n_epochs: 1
+    verbose: true
+    dirpath: ${work_dir}/${hydra:run.dir}/checkpoints/
+    auto_insert_metric_name: false
+  learning_rate_monitor:
+    _target_: pytorch_lightning.callbacks.LearningRateMonitor
+    logging_interval: step
+loss:
+  _target_: ugains.models.mask2former.maskformer_loss.SetCriterion
+  num_classes: ${datamodule.num_classes}
+  matcher:
+    _target_: ugains.models.mask2former.matcher.HungarianMatcher
+    cost_class: 2.0
+    cost_mask: 5.0
+    cost_dice: 5.0
+    num_points: 12544
+  losses:
+  - labels
+  - masks
+  num_points: 12544
+  oversample_ratio: 3.0
+  importance_sample_ratio: 0.75
+  eos_coef: 0.1
+  ignore_index: 254
+  weight_dict:
+    loss_ce: 2.0
+    loss_mask: 5.0
+    loss_dice: 5.0
+metrics:
+  iou:
+    _target_: ugains.metrics.iou_metrics.IoU
+    num_classes: ${datamodule.num_classes}
+    ignore_label: ${datamodule.ignore_label}
+  ood:
+    _target_: ugains.metrics.ood.OODMetrics
+    ignore_label: ${datamodule.ignore_label}
+  instance:
+    _target_: ugains.metrics.instance.CityscapesInstanceEvaluator
+    data_dir: ${data_dir}/fs_lost_found_instance

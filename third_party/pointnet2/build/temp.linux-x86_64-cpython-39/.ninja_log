@@ -1,0 +1,19 @@
+# ninja log v5
+0	4548	1726297578986668700	/media/gyang/data/Codes/RbA+SAM/third_party/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/ball_query_gpu.o	92a009c432a1f80c
+1	4582	1726297579020668500	/media/gyang/data/Codes/RbA+SAM/third_party/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/interpolate_gpu.o	cc0a8a1ec2dd8a12
+1	5157	1726297579594665900	/media/gyang/data/Codes/RbA+SAM/third_party/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/sampling_gpu.o	b39a4d0158d51661
+0	5438	1726297579877664600	/media/gyang/data/Codes/RbA+SAM/third_party/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/group_points.o	7c22cd51f4b58818
+0	5440	1726297579880664600	/media/gyang/data/Codes/RbA+SAM/third_party/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/ball_query.o	5b5956d0ed2839a9
+1	5459	1726297579900664500	/media/gyang/data/Codes/RbA+SAM/third_party/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/interpolate.o	d73df3c136e5a9a0
+0	5472	1726297579913664400	/media/gyang/data/Codes/RbA+SAM/third_party/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/sampling.o	9cf213fe4e58f0f7
+1	5714	1726297580152663300	/media/gyang/data/Codes/RbA+SAM/third_party/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/group_points_gpu.o	d5ff605536a46ad9
+0	6267	1726297580707660700	/media/gyang/data/Codes/RbA+SAM/third_party/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/bindings.o	40bf7dc150516bc0
+2	4568	1726305305938023700	/media/gyang/data/Codes/RbA+SAM/third_party/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/ball_query_gpu.o	7ceea334250605fc
+2	4573	1726305305945023900	/media/gyang/data/Codes/RbA+SAM/third_party/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/group_points_gpu.o	a784524b7c946ec1
+3	4767	1726305306138027400	/media/gyang/data/Codes/RbA+SAM/third_party/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/interpolate_gpu.o	d51792b52e165bec
+3	5237	1726305306608036000	/media/gyang/data/Codes/RbA+SAM/third_party/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/sampling_gpu.o	9af599406f1b9843
+2	5782	1726305307154046100	/media/gyang/data/Codes/RbA+SAM/third_party/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/sampling.o	d9d5e5bdca615ebd
+2	5893	1726305307265048100	/media/gyang/data/Codes/RbA+SAM/third_party/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/ball_query.o	7bc7108421070e4b
+2	5976	1726305307349049700	/media/gyang/data/Codes/RbA+SAM/third_party/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/interpolate.o	d6f67bc0adf7c1c1
+2	6000	1726305307373050100	/media/gyang/data/Codes/RbA+SAM/third_party/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/group_points.o	d4586ae626d89200
+2	6387	1726305307760057200	/media/gyang/data/Codes/RbA+SAM/third_party/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/bindings.o	a983f82d1e450c3e

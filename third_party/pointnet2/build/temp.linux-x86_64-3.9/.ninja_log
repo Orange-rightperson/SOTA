@@ -1,0 +1,10 @@
+# ninja log v5
+1	8301	1728713414408102602	/home/zhengmi/Rba/third_party/pointnet2/build/temp.linux-x86_64-3.9/_ext_src/src/group_points_gpu.o	58889e728c5b9b27
+2	8401	1728713414508104407	/home/zhengmi/Rba/third_party/pointnet2/build/temp.linux-x86_64-3.9/_ext_src/src/sampling_gpu.o	2877d09f61e02869
+2	8529	1728713414640106791	/home/zhengmi/Rba/third_party/pointnet2/build/temp.linux-x86_64-3.9/_ext_src/src/interpolate_gpu.o	36840866fd03b81f
+0	8566	1728713414676107441	/home/zhengmi/Rba/third_party/pointnet2/build/temp.linux-x86_64-3.9/_ext_src/src/ball_query_gpu.o	73daae4c68cb06b
+0	10529	1728713416648143049	/home/zhengmi/Rba/third_party/pointnet2/build/temp.linux-x86_64-3.9/_ext_src/src/ball_query.o	474a4cc4e2481af9
+1	10556	1728713416676143554	/home/zhengmi/Rba/third_party/pointnet2/build/temp.linux-x86_64-3.9/_ext_src/src/group_points.o	1d5919b4dab5e21b
+1	10683	1728713416800145794	/home/zhengmi/Rba/third_party/pointnet2/build/temp.linux-x86_64-3.9/_ext_src/src/interpolate.o	71d4aa29b4ffd1c
+2	10939	1728713417056150416	/home/zhengmi/Rba/third_party/pointnet2/build/temp.linux-x86_64-3.9/_ext_src/src/sampling.o	e08c0304a9329096
+1	12731	1728713418848182774	/home/zhengmi/Rba/third_party/pointnet2/build/temp.linux-x86_64-3.9/_ext_src/src/bindings.o	7443d66412019cc8
