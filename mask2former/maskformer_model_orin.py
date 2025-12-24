@@ -21,7 +21,7 @@ from .modeling.matcher import HungarianMatcher, FixedMatcher
 from .modeling.sampler import NLSSampler
 from .modeling.segment_anything import SamPredictor, sam_model_registry
 from .modeling.segment_anything.automatic_mask_generator import SamAutomaticMaskGenerator
-from .modeling.sfg import SelectiveFusionGate
+from .modeling.ma import MultiAwareAttention
 from copy import deepcopy
 
 
@@ -162,7 +162,7 @@ class MaskFormer(nn.Module):
         sfg_filter_num = 1
         sfg_intermediate_channels = 32
         sfg_filter_type = "conv2d"
-        self.fusion_module = SelectiveFusionGate(
+        self.fusion_module = MultiAwareAttention(
             feat_num = sfg_feat_num,
             filter_num=sfg_filter_num,
             intermediate_channels=sfg_intermediate_channels,
